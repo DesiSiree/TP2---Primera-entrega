@@ -1,4 +1,3 @@
-
 async function createEmailBuilder(user, pass) {
 
     return {
@@ -11,29 +10,27 @@ async function createEmailBuilder(user, pass) {
             }
         },
 
-        createEmailWithAttachment: async (from, to, subject) => {
+        createEmailWithAttachment: async (from, to, subject, html, fileName, filePath, contentType) => {
+
             return {
                 from: from,
                 to: to,
                 subject: subject,
-                html: "<h1> Probando hola hola holaaa ! </h1> <b> envio de archivos adjuntos ✔</b>",         
+                html: html,         
                 attachments: [{
-                    filename: 'text.txt',
-                    content: 'Se creo texto!!!!',
-                    contentType: 'text/plain'},
-                 { // use URL as an attachment
-                    fileName: "license.txt",
-                    filePath: "https://raw.github.com/andris9/Nodemailer/master/LICENSE"    
+                    fileName: fileName,
+                    path: filePath,
+                    contentType: contentType 
                 }]
             }
         },
 
-        createEmailWithImageAndAttachment: async (from, to, subject) => {
+        createEmailWithImageAndAttachment: async (from, to, subject, html, fileName, filePath, contentType) => {
                 return {
                     from: from,
                     to: to,
                     subject: subject,
-                    html:'Embedded image: <img src="cid:codigoUnicoParafoto"/>',
+                    html:html,
                     attachments: [{
                         filename: 'image.jpg',
                         path: './imagen/image.jpg',
