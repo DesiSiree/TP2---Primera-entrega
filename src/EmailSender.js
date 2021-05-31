@@ -20,7 +20,7 @@ async function createEmailSender(user, pass) {
                 let info = await transporter.sendMail(emailOptions);
                 console.log(info);
             } catch (error) {
-                console.error(error);
+                throw 'Error en envio de email. Error: ' + error;;
             }
         }
     }

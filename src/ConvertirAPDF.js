@@ -3,7 +3,6 @@ import { jsPDF } from "jspdf";
 // Debe existir la ruta que se envia como parámetro, de lo contrario catchea el error y no crea los pdf.
 function crearConversorPdf(ruta){
 
-
   return{
     pasarAPdf : (titulo, nombrePdf, datos)=>{
       const doc = new jsPDF();
@@ -25,7 +24,7 @@ function crearConversorPdf(ruta){
         doc.save(ruta + nombrePdf + ".pdf")
 
       } catch (error) {
-        console.log(error)
+        throw 'Error al crear pdf. Error: ' + error;
       }
     }
 }

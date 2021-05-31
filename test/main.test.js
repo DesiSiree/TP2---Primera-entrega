@@ -1,8 +1,8 @@
-import { createEmailService } from "../src/EmailService.js"
+import { createEmailComprobante } from "../src/EmailComprobante.js"
 
 async function main() {
    
-    const emailService = await createEmailService('ort.proy.integrador.21@gmail.com', 'Ort123456');
+    const emailComprobante = await createEmailComprobante('ort.proy.integrador.21@gmail.com', 'Ort123456');
 
     //emailService.sendEmailPlainText('Yo', 'ort.proy.integrador.21@gmail.com', '1,2,3 probando - prueba Envio de mails', '1,2,3 probando');
     //emailService.sendEmailWithAttachment('Yo', 'ort.proy.integrador.21@gmail.com', '1,2,3 probando - Pueba envio de mails');
@@ -10,14 +10,17 @@ async function main() {
     const fecha = new Date();
     
     const datosObj = {
-      nombre: "Nombre: Pepito Perez",
+      nombre: "Nombre: Pepito ",
+      Apellido: "Apellido: Perez",
+      Edad: "Edad: 32",
       sede: "Sede: Centro",
       hoy: "Fecha: " + fecha.toLocaleDateString('en-GB'),
       tipoVacuna: "Vacuna: AstraZeneca",
       dosis: "Dosis: Primera dosis",
+      FOTO_Persona: "Aca va la foto",
     }; 
 
-    emailService.sendEmailWithVacunateTemplate('ort.proy.integrador.21@gmail.com', datosObj);
+    emailComprobante.send('ort.proy.integrador.21@gmail.com', datosObj);
 
 }
 
